@@ -1,12 +1,26 @@
-<?php get_header(); ?>
+<?php
+    get_header();
+    $adverts = get_posts(['post_type'=>'adverts']);
+?>
 
-    <div class="card col-md-4">
-        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="http://localhost/wp_tt/detalhe/1" class="btn btn-block btn-primary">Detalhes</a>
-        </div>
+    <div class="row">
+        <?php foreach($adverts as $advert): ?>
+            <div style="margin-bottom: 20px;" class="col-md-4">
+                <div class="card">
+                    <img style="" class="card-img-top" src="<?= get_the_post_thumbnail_url($advert) ?>" alt="<?= $advert->post_title ?>">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <?= $advert->post_title ?>
+                        </h5>
+                        <p class="card-text">
+                            <?= substr($advert->post_content, 0, 120).'...' ?>
+                        </p>
+                        
+                        <a href="<?= get_permalink(58) .'/?id='. $advert->ID ?>" class="btn btn-block btn-primary">Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </div>
 
 <?php get_footer(); ?>
