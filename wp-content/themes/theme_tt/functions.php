@@ -85,7 +85,5 @@ function create_page_detail() {
         ];
        wp_insert_post($post_details);
     }
-
-   $page = get_page_by_title('detalhe');
 }
 add_action('admin_footer', 'create_page_detail');
