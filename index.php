@@ -1,8 +1,6 @@
 <?php
     get_header();
-    $adverts = get_posts(['post_type'=>'adverts', 'numberposts' => 20]);
 
-    
     if (isset($_GET['filter'])) {
         $args = [
             'post_type' => 'adverts',
@@ -15,6 +13,8 @@
             ]
         ];
         $adverts = get_posts($args);
+    } else {
+        $adverts = get_posts(['post_type'=>'adverts', 'numberposts' => 20]);
     }
 ?>
 
