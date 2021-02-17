@@ -72,3 +72,20 @@ function clear_errors() {
     update_option('my_admin_errors', false);
 }
 add_action('admin_footer', 'clear_errors');
+
+function create_page_detail() {
+    $page = get_page_by_title('detalhe');
+
+    if (empty($page)) {
+        $post_details = [
+            'post_title'    => 'detalhe',
+            'post_status'   => 'publish',
+            'post_author'   => 1,
+            'post_type' => 'page'
+        ];
+       wp_insert_post($post_details);
+    }
+
+   $page = get_page_by_title('detalhe');
+}
+add_action('admin_footer', 'create_page_detail');
