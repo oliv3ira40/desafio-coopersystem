@@ -67,3 +67,8 @@ function admin_notice_handler() {
     }
 }
 add_action('admin_notices', 'admin_notice_handler');
+
+function clear_errors() {
+    update_option('my_admin_errors', false);
+}
+add_action('admin_footer', 'clear_errors');
