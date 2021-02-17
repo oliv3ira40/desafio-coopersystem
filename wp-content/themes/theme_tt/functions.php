@@ -22,7 +22,7 @@ function create_posttype() {
         'taxonomies'    => ['post_tag'],
         'hierarquical'  => false,
         'public'        => true,
-        'rewrite'       => ['slug' => 'anuncio'],
+        'rewrite'       => ['slug' => 'ad'],
         'has_archive'   => true,
     ];
     
