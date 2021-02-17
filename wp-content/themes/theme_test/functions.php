@@ -58,3 +58,12 @@ function validating_custom_fields($post_id, $post) {
     return;
 }
 add_action('save_post','validating_custom_fields', 1, 2);
+
+function admin_notice_handler() {
+    $errors = get_option('my_admin_errors');
+
+    if ($errors != false) {
+        echo '<div class="error"><p>'.$errors.'</p></div>';
+    }
+}
+add_action('admin_notices', 'admin_notice_handler');
