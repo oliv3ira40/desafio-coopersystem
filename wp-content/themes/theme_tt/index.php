@@ -17,7 +17,7 @@
                                 <?= substr($advert->post_content, 0, 120).'...' ?>
                             </p>
                             
-                            <a href="<?= home_url().'/ad/?id='. $advert->ID ?>" class="btn btn-block btn-primary">Detalhes</a>
+                            <a href="<?= home_url().'/detalhe/?id='. $advert->ID ?>" class="btn btn-block btn-primary">Detalhes</a>
                         </div>
                     </div>
                 </div>
