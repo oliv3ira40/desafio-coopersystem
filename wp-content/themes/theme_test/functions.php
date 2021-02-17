@@ -32,3 +32,29 @@ add_action('init', 'create_posttype');
 
 
 
+function validating_custom_fields($post_id, $post) {
+    $errors = false;
+    if ($_POST['post_type'] == 'adverts' AND !in_array($_REQUEST['action'], ['trash', 'untrash'])) {
+        $data = [
+            'post_title'    => $_POST['post_title'],
+            'content'       => $_POST['content'],
+            'post_tag'      => $_POST['tax_input']['post_tag'],
+            'thumbnail'     => $_POST['_thumbnail_id'],
+        ];
+        if ($data['thumbnail'] == -1) unset($data['thumbnail']);
+        $data = array_filter($data);
+
+        if ($_POST['post_status'] == 'publish' AND count($data) != 4) {
+            global $wpdb;
+            $wpdb->query("UPDATE `wp_posts` SET `post_status` = 'draft' WHERE `ID` = $post_id");
+    
+            $errors .= 'Campos obrigatórios: título, descrição, tag e imagem';
+            update_option('my_admin_errors', $errors);
+            
+            wp_redirect(admin_url('post.php?post='.$post_id.'&action=edit'));
+            exit;
+        }
+    }
+    return;
+}
+add_action('save_post','validating_custom_fields', 1, 2);
