@@ -13,3 +13,5 @@ $ git clone https://github.com/oliv3ira40/desafio-coopersystem
 3° - No Admin do WP, vá até o menu **Aparência** e ative o tema recém inserido.
 
 4° - No Admin do WP, Vá até o menu **Páginas > Todas as páginas**, e edite a página **detalhe** alterando seu **modelo** para **detail_page**.
+
+5° - Depois dos passos acima ira aparecer um item do menu lateral **Anúncios**
