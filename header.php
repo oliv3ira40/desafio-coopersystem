@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Wp TT</title>
+    <title>Desafio CooperSystem</title>
 
 
     <!-- Bootstrap CSS -->
@@ -13,7 +13,7 @@
   <body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
-				<a class="navbar-brand" href="<?= home_url(); ?>">Wp TT</a>
+				<a class="navbar-brand" href="<?= home_url(); ?>">Desafio CooperSystem</a>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item active">
