@@ -34,7 +34,7 @@ add_action('init', 'create_posttype');
 
 function validating_custom_fields($post_id, $post) {
     $errors = false;
-    if ($_POST['post_type'] == 'adverts' AND !in_array($_REQUEST['action'], ['trash', 'untrash'])) {
+    if (!empty($_POST) AND $_POST['post_type'] == 'adverts' AND !in_array($_REQUEST['action'], ['trash', 'untrash'])) {
         $data = [
             'post_title'    => $_POST['post_title'],
             'content'       => $_POST['content'],
